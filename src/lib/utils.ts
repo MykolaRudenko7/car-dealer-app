@@ -36,3 +36,12 @@ export async function fetchVehicleModels(makeId: string, year: string): Promise<
     return []
   }
 }
+
+export function generateYearOptions() {
+  const currentYear = new Date().getFullYear()
+  const years = []
+  for (let year = currentYear; year >= 2015; year--) {
+    years.push(year)
+  }
+  return years
+}
