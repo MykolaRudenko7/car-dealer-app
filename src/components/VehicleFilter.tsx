@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { v4 as uuidv4 } from 'uuid'
 import { VehicleFilterProps } from 'types'
 
 export default function VehicleFilter({ makes, years }: VehicleFilterProps) {
@@ -30,7 +31,7 @@ export default function VehicleFilter({ makes, years }: VehicleFilterProps) {
           >
             <option value="">Select a make</option>
             {makes.map((make) => (
-              <option key={make.MakeId} value={make.MakeId}>
+              <option key={uuidv4()} value={make.MakeId}>
                 {make.MakeName}
               </option>
             ))}
@@ -49,7 +50,7 @@ export default function VehicleFilter({ makes, years }: VehicleFilterProps) {
           >
             <option value="">Select a year</option>
             {years.map((year) => (
-              <option key={year} value={year}>
+              <option key={uuidv4()} value={year}>
                 {year}
               </option>
             ))}
