@@ -1,7 +1,5 @@
-import { Suspense } from 'react'
 import { fetchVehicleMakes, generateYearOptions } from 'lib/utils'
 import VehicleFilter from 'components/VehicleFilter'
-import { LoadingSpinner } from 'components/LoadingSpinner'
 
 export default async function Home() {
   const makes = await fetchVehicleMakes()
@@ -11,9 +9,7 @@ export default async function Home() {
     <main className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4">
         <h1 className="text-3xl font-bold text-center mb-8">Car Dealer App</h1>
-        <Suspense fallback={<LoadingSpinner />}>
-          <VehicleFilter makes={makes} years={years} />
-        </Suspense>
+        <VehicleFilter makes={makes} years={years} />
       </div>
     </main>
   )

@@ -1,9 +1,7 @@
-import { Suspense } from 'react'
 import Link from 'next/link'
 import { fetchVehicleMakes, fetchVehicleModels } from 'lib/utils'
 import { ErrorMessage } from 'components/ErrorMessage'
 import { ModelList } from 'components/ModelList'
-import { LoadingSpinner } from 'components/LoadingSpinner'
 import { ErrorMessages } from 'data'
 import { ResultPageProps, VehicleMake, VehicleModel } from 'types'
 
@@ -38,9 +36,7 @@ export default async function ResultPage({ params }: ResultPageProps) {
 
         {errorMessage && <ErrorMessage message={errorMessage} />}
 
-        <Suspense fallback={<LoadingSpinner />}>
-          <ModelList models={models} />
-        </Suspense>
+        <ModelList models={models} />
       </div>
     </main>
   )
